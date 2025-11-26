@@ -10,6 +10,16 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Georgian:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://db.onlinewebfonts.com/c/e7b466342e72089bd39975865c03be1e?family=Mark+GEO+CAPS"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg" href="media/logo.svg" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -20,13 +30,55 @@
         </div>
         <div class="heading-nav">
           <nav>
-            <span>მთავარი</span>
+            <a>მთავარი</a>
             <a>პროდუქტები</a>
-            <a>ვაკანსიები</a>
-            <a>კონტაქტი</a>
+            <a id="vacancy-link" href="#">ვაკანსიები</a>
           </nav>
         </div>
         <button class="partnering">პარტნიორობა</button>
+      </div>
+    </div>
+
+    <div id="partnershipModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+
+        <div class="modal-header">
+          <h2>მოითხოვე <br /><span class="highlight">პარტნიორობა</span></h2>
+          <p>ჩვენი წარმომადგენელი უმოკლეს დროში დაგიკავშირდებათ</p>
+        </div>
+
+        <form>
+          <input type="text" placeholder="სახელი" required />
+          <input type="text" placeholder="კომპანია" />
+          <input type="text" placeholder="პროდუქტი" />
+          <input type="tel" placeholder="ტელეფონი" />
+          <textarea placeholder="მოკლე შეტყობინება" rows="4"></textarea>
+
+          <button type="button" class="send-btn">გაგზავნა</button>
+        </form>
+      </div>
+    </div>
+    <div id="vacancyModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn vacancy-close">&times;</span>
+
+        <div class="modal-header">
+          <h2>შემოუერთდი <br /><span class="highlight">გუნდს</span></h2>
+          <p>იპოვე შენი ადგილი ჩვენთან</p>
+        </div>
+
+        <form>
+          <input type="text" placeholder="სახელი, გვარი" required />
+          <input type="email" placeholder="ელ.ფოსტა" />
+          <input type="text" placeholder="სასურველი პოზიცია" />
+          <div style="margin-top: 15px; border-bottom: 1px solid #555">
+            <label style="color: #aaa; font-size: 12px">ატვირთეთ CV</label>
+            <input type="file" style="border: none" />
+          </div>
+
+          <button type="button" class="send-btn">გაგზავნა</button>
+        </form>
       </div>
     </div>
 
@@ -35,17 +87,57 @@
       <h1>ჩვენ შესახებ</h1>
       <hr />
       <p>
-        ClOVER BLOOM MARKET წარმოადგენს მაღაზიას, სადაც მომხმარებელს აქვს
+        <b>ClOVER BLOOM MARKET</b> წარმოადგენს მაღაზიას, სადაც მომხმარებელს აქვს
         შესაძლებლობა შეიძინოს მაღალი ხარისხის პროდუქცია კომფორტულ და
         მოწესრიგებულ გარემოში. ჩვენი მისიაა საქართველოში მომსახურების სტანდარტის
         გაუმჯობესება, რათა თითოეულმა კლიენტმა პირველივე ვიზიტიდან იგრძნოს
         სანდოობა და განსაკუთრებული კომფორტი. ჩვენ მტკიცედ გვჯერა, რომ ზრუნვა
         ყოველდღიურობის განუყოფელი ნაწილია. სწორედ ამ პრინციპზეა დამყარებული
-        CLOVER BLOOM MARKET — ადგილი ადამიანებისთვის, რომლებიც ზრუნავენ საკუთარ
-        თავზე და მათთვის ძვირფას ადამიანებზე.
+        <b>CLOVER BLOOM MARKET</b> — ადგილი ადამიანებისთვის, რომლებიც ზრუნავენ
+        საკუთარ თავზე და მათთვის ძვირფას ადამიანებზე.
       </p>
-
-      <p></p>
     </div>
   </body>
 </html>
+
+<script>
+  //--პარტნიორიობის ლოგიკა
+  var partnerModal = document.getElementById("partnershipModal");
+  var partnerBtn = document.querySelector(".partnering");
+  var partnerClose = document.getElementsByClassName("close-btn")[0];
+
+  // პარტნიორიობის გახსნა
+  partnerBtn.onclick = function () {
+    partnerModal.style.display = "block";
+  };
+  // პარტნიორიობის დახურვა
+  partnerClose.onclick = function () {
+    partnerModal.style.display = "none";
+  };
+
+  // ვაკანსიის ლოგიკა
+  var vacancyModal = document.getElementById("vacancyModal");
+
+  var vacancyBtn = document.getElementById("vacancy-link");
+  var vacancyClose = document.querySelector(".vacancy-close");
+
+  // ვაკანსიის გახსნა
+  vacancyBtn.onclick = function (event) {
+    event.preventDefault();
+    vacancyModal.style.display = "block";
+  };
+  // ვაკანსიის დახურვა
+  vacancyClose.onclick = function () {
+    vacancyModal.style.display = "none";
+  };
+
+  //თუ ეკრანზე დავაჭერთ უბრალოდ ფანჯარა რომ დაიხუროს
+  window.onclick = function (event) {
+    if (event.target == partnerModal) {
+      partnerModal.style.display = "none";
+    }
+    if (event.target == vacancyModal) {
+      vacancyModal.style.display = "none";
+    }
+  };
+</script>
