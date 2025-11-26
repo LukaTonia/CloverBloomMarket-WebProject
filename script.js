@@ -32,3 +32,8 @@
     }
   };
 
+var bottomPartnerBtn = document.getElementById("bottomPartnerBtn");
+  
+  bottomPartnerBtn.onclick = function() {
+    partnerModal.style.display = "block";
+  }
