@@ -24,8 +24,13 @@ Follow these steps to set up the project locally:
    
    git clone [https://github.com/LukaTonia/CloverBloomMarket-WebProject.git](https://github.com/LukaTonia/CloverBloomMarket-WebProject.git)
 
-**Fork the repository
-**Create a new branch: git checkout -b feature/your-feature
-**Commit your changes: git commit -m 'Add your feature'
-**Push to the branch: git push origin feature/your-feature
-**Submit a pull request
+## Contributing
+
+1. **Fork the repository**
+2. **Create a new branch:**
+   `git checkout -b feature/your-feature`
+3. **Commit your changes:**
+   `git commit -m 'Add your feature'`
+4. **Push to the branch:**
+   `git push origin feature/your-feature`
+5. **Submit a pull request**
