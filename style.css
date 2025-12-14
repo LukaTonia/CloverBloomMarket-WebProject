@@ -439,7 +439,19 @@ body {
   justify-content: center;
 }
 
-.logo-box {
+.logo-box1 {
+  width: 150px;
+  height: 150px;
+  background-image: url(/media/partner1.svg);
+  background-size: cover;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light-gray);
+  font-family: "Mark Geo CAPS";
+}
+.logo-box2 {
   width: 150px;
   height: 150px;
   background-image: url(/media/partner2.jpg);
