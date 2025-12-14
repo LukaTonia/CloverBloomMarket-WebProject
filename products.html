@@ -3,8 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Clover Bloom Market - პროდუქტები</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Georgian:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link href="https://db.onlinewebfonts.com/c/e7b466342e72089bd39975865c03be1e?family=Mark+GEO+CAPS" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" type="image/svg" href="media/logo.svg" />
+    
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="products.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="heading">
+      <div class="heading-container">
+        <div class="heading-logo">
+            <a href="index.html"><img class="logo" src="media/logo2.png" alt="Clover" /></a>
+        </div>
+        <div class="heading-nav">
+          <nav>
+            <a href="index.html">მთავარი</a>
+            <a href="products.html" style="color: #c9a260;">პროდუქტები</a>
+            <a id="vacancy-link" href="#">ვაკანსიები</a>
+            
+            <a href="#open-cart" class="nav-cart-btn">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="nav-cart-count">2</span>
+            </a>
+          </nav>
+        </div>
+        <button class="partnering">პარტნიორობა</button>
+      </div>
+    </div>
+
+    <div id="open-cart" class="css-modal-window">
+        <div class="css-modal-content">
+            <a href="#" class="css-modal-close">×</a>
+            <div class="modal-header">
+                <h2>ჩემი <span class="highlight">კალათა</span></h2>
+            </div>
+            
+            <div class="static-cart-items">
+                <div class="cart-item">
+                    <div class="item-info">
+                        <h4>წითელი ღვინო</h4>
+                        <small>24.50 ₾ x 1</small>
+                    </div>
+                    <div class="item-actions">
+                        <span class="item-price">24.50 ₾</span>
+                        <button class="remove-btn"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <div class="cart-item">
+                    <div class="item-info">
+                        <h4>პური თონი</h4>
+                        <small>1.20 ₾ x 2</small>
+                    </div>
+                    <div class="item-actions">
+                        <span class="item-price">2.40 ₾</span>
+                        <button class="remove-btn"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-price">
+                    <span>ჯამი:</span>
+                    <span>26.90 ₾</span>
+                </div>
+                <button class="send-btn">შეკვეთის გაფორმება</button>
+            </div>
+        </div>
+        <a href="#" class="css-modal-overlay-close"></a>
+    </div>
+
+    <div class="products-page-wrapper">
+        <div class="section-header">
+            <h2>სრული <br> <span style="color: #c9a260;">ასორტიმენტი</span></h2>
+            <hr />
+        </div>
+
+        <div class="controls-container">
+            <div class="categories-bar">
+                <button class="cat-btn active">ყველა</button>
+                <button class="cat-btn">სასმელი</button>
+                <button class="cat-btn">ბაკალეა</button>
+                <button class="cat-btn">სნექი</button>
+                <button class="cat-btn">რძის ნაწარმი</button>
+            </div>
+
+            <div class="sort-box">
+                <select>
+                    <option>დალაგება</option>
+                    <option>ფასი: ზრდადი</option>
+                    <option>ფასი: კლებადი</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="main-products-grid">
+            <div class="store-card">
+                <div class="card-image"><i class="fa-solid fa-wine-bottle"></i></div>
+                <div class="card-details">
+                    <h3>წითელი ღვინო</h3>
+                    <p class="category">სასმელი</p>
+                    <div class="price-row">
+                        <span class="price">24.50 ₾</span>
+                        <button class="add-btn"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="store-card">
+                <div class="card-image"><i class="fa-solid fa-bread-slice"></i></div>
+                <div class="card-details">
+                    <h3>პური თონი</h3>
+                    <p class="category">პურ-ფუნთუშეული</p>
+                    <div class="price-row">
+                        <span class="price">1.20 ₾</span>
+                        <button class="add-btn"><i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+          <div class="footer-col logo-col">
+              <span>CLOVER BLOOM MARKET</span>
+          </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
