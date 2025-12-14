@@ -1,11 +1,37 @@
+:root {
+  --main-bg: #f4f1ea;
+  --header-bg: #235439;
+  --gold-accent: #c9a260;
+  --gold-hover: rgba(201, 162, 96, 0.4);
+  --white: #ffffff;
+  --text-dark: #333333;
+  --text-grey: #555555;
+  --border-grey: #aaaaaa;
+  --input-border: #555555;
+  --modal-overlay: rgba(0, 0, 0, 0.8);
+  --modal-shadow: rgba(0, 0, 0, 0.5);
+  --header-shadow: rgba(35, 84, 57, 0.3);
+  --btn-green: #5ca565;
+  --btn-green-hover: #5ba566;
+  --icon-bg-white: #ffffff;
+  --footer-bg: #1a3f2b;
+  --footer-bottom-bg: #122e1f;
+  --footer-text-muted: #aebfb5;
+  --footer-link-hover: #c9a260;
+  --footer-link-text: #e0e0e0;
+  --footer-border-dark: rgba(255, 255, 255, 0.05);
+  --footer-border-light: rgba(255, 255, 255, 0.1);
+  --footer-bottom-text: #6d8a78;
+}
+
 body {
   margin: 0;
-  background-color: #f4f1ea;
+  background-color: var(--main-bg);
 }
 
 .heading {
   height: auto;
-  background-color: #235439;
+  background-color: var(--header-bg);
   font-family: Mark Geo CAPS;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -13,7 +39,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(35, 84, 57, 0.3);
+  box-shadow: 0 4px 12px var(--header-shadow);
 }
 
 .heading-container {
@@ -34,19 +60,19 @@ body {
   justify-content: space-between;
   gap: 50px;
   margin-right: 100px;
-  color: white;
+  color: var(--white);
   font-size: 20px;
   cursor: pointer;
 }
 
 .heading-nav nav a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   transition: 0.3s;
 }
 
 .heading-nav nav a:hover {
-  color: #c9a260;
+  color: var(--gold-accent);
 }
 
 #vacancy-link {
@@ -54,11 +80,11 @@ body {
 }
 
 #vacancy-link:hover {
-  color: #c9a260;
+  color: var(--gold-accent);
 }
 
 .heading-nav nav a:visited {
-  color: white;
+  color: var(--white);
 }
 
 .heading-logo {
@@ -82,9 +108,9 @@ body {
   height: 50px;
   font-size: 20px;
   font-family: "Mark Geo CAPS", sans-serif;
-  background-color: #c9a260;
-  color: white;
-  border: 1px solid #c9a260;
+  background-color: var(--gold-accent);
+  color: var(--white);
+  border: 1px solid var(--gold-accent);
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -93,8 +119,8 @@ body {
 
 .partnering:hover {
   background-color: transparent;
-  color: #c9a260;
-  box-shadow: 0 0 15px rgba(201, 162, 96, 0.4);
+  color: var(--gold-accent);
+  box-shadow: 0 0 15px var(--gold-hover);
 }
 
 .cover {
@@ -115,7 +141,7 @@ body {
 
 .about-us-container h1 {
   font-family: "Mark Geo CAPS", sans-serif;
-  color: #235439;
+  color: var(--header-bg);
   font-size: 32px;
   margin-bottom: 10px;
 }
@@ -123,14 +149,14 @@ body {
 .about-us-container hr {
   width: 100px;
   height: 3px;
-  background-color: #c9a260;
+  background-color: var(--gold-accent);
   border: none;
   margin: 0 auto 30px auto;
 }
 
 .about-us-container p {
   font-family: "Noto Serif Georgian", serif;
-  color: #333;
+  color: var(--text-dark);
   font-size: 16px;
   text-align: justify;
   line-height: 1.8;
@@ -147,27 +173,27 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--modal-overlay);
   backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  background-color: #235439;
+  background-color: var(--header-bg);
   margin: 5% auto;
   padding: 40px;
-  border: 1px solid #c9a260;
+  border: 1px solid var(--gold-accent);
   width: 90%;
   max-width: 400px;
   border-radius: 12px;
-  color: white;
+  color: var(--white);
   font-family: "Noto Serif Georgian", serif;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px 0 var(--modal-shadow);
   position: relative;
   box-sizing: border-box;
 }
 
 .close-btn {
-  color: #aaa;
+  color: var(--border-grey);
   position: absolute;
   top: 15px;
   right: 20px;
@@ -177,24 +203,24 @@ body {
 }
 
 .close-btn:hover {
-  color: white;
+  color: var(--white);
 }
 
 .modal-header h2 {
   margin-top: 0;
   font-size: 24px;
-  color: white;
+  color: var(--white);
   text-transform: uppercase;
   line-height: 1.2;
 }
 
 .modal-header .highlight {
-  color: #c9a260;
+  color: var(--gold-accent);
 }
 
 .modal-header p {
   font-size: 12px;
-  color: #ccc;
+  color: var(--text-light-gray);
   margin-bottom: 30px;
 }
 
@@ -205,9 +231,9 @@ body {
   margin: 8px 0;
   display: inline-block;
   border: none;
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid var(--input-border);
   background-color: transparent;
-  color: white;
+  color: var(--white);
   outline: none;
   font-family: "Noto Serif Georgian", serif;
   box-sizing: border-box;
@@ -215,16 +241,16 @@ body {
 
 .modal-content input:focus,
 .modal-content textarea:focus {
-  border-bottom: 1px solid #5ca565;
+  border-bottom: 1px solid var(--btn-green);
 }
 
 .send-btn {
   width: 100%;
-  background-color: #5ca565;
-  color: white;
+  background-color: var(--btn-green);
+  color: var(--white);
   padding: 14px 20px;
   margin-top: 20px;
-  border: 1px solid #5ba566;
+  border: 1px solid var(--btn-green-hover);
   border-radius: 25px;
   cursor: pointer;
   font-size: 16px;
@@ -233,7 +259,7 @@ body {
 }
 
 .send-btn:hover {
-  background-color: #c9a260;
+  background-color: var(--gold-accent);
   color: black;
 }
 
@@ -245,22 +271,22 @@ body {
 .section-header h2 {
   font-family: "Mark Geo CAPS", sans-serif;
   font-size: 32px;
-  color: #235439;
+  color: var(--header-bg);
   margin-bottom: 10px;
 }
 
 .section-header hr {
   width: 60px;
   height: 3px;
-  background-color: #5ca565;
+  background-color: var(--btn-green);
   border: none;
   margin: 0 auto;
 }
 
 .products-section {
-  background-color: #235439;
+  background-color: var(--header-bg);
   padding: 60px 20px;
-  color: #c9a260;
+  color: var(--gold-accent);
 }
 
 .products-grid {
@@ -289,7 +315,7 @@ body {
 .product-item i {
   font-size: 40px;
   margin-bottom: 15px;
-  color: #c9a260;
+  color: var(--gold-accent);
 }
 
 .product-item span {
@@ -300,7 +326,7 @@ body {
 
 .advantages-section {
   padding: 60px 20px;
-  background-color: #f4f1ea;
+  background-color: var(--main-bg);
 }
 
 .advantages-container {
@@ -320,9 +346,9 @@ body {
 
 .advantage-item i {
   font-size: 50px;
-  color: #c9a260;
+  color: var(--gold-accent);
   margin-bottom: 20px;
-  background-color: white;
+  background-color: var(--white);
   padding: 20px;
   border-radius: 50%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -330,19 +356,19 @@ body {
 
 .advantage-item h3 {
   font-family: "Mark Geo CAPS", sans-serif;
-  color: #235439;
+  color: var(--header-bg);
   font-size: 18px;
   margin-bottom: 15px;
 }
 
 .advantage-item p {
   font-family: "Noto Serif Georgian", serif;
-  color: #555;
+  color: var(--text-grey);
   font-size: 14px;
 }
 
 .partners-section {
-  background-color: #235439;
+  background-color: var(--header-bg);
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
@@ -360,14 +386,14 @@ body {
 
 .partners-title h2 {
   font-family: "Mark Geo CAPS", sans-serif;
-  color: white;
+  color: var(--white);
   font-size: 36px;
   line-height: 1.2;
   text-align: right;
 }
 
 .partners-title .underline {
-  border-bottom: 3px solid #5ca565;
+  border-bottom: 3px solid var(--btn-green);
 }
 
 .partners-logos {
@@ -380,19 +406,19 @@ body {
 .logo-box {
   width: 150px;
   height: 150px;
-  background-image: url(/media/partner1.jpg);
-  background-size: contain;
-  background-color: white;
+  background-image: url(/media/partner2.jpg);
+  background-size: fit;
+  background-color: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ccc;
+  color: var(--text-light-gray);
   font-family: "Mark Geo CAPS";
 }
 
 .white-partner-btn {
-  background-color: white;
-  color: #235439;
+  background-color: var(--white);
+  color: var(--header-bg);
   font-family: "Mark Geo CAPS", sans-serif;
   padding: 15px 40px;
   border: none;
@@ -404,8 +430,8 @@ body {
 }
 
 .white-partner-btn:hover {
-  background-color: #c9a260;
-  color: white;
+  background-color: var(--gold-accent);
+  color: var(--white);
 }
 
 .contact-section {
@@ -433,7 +459,7 @@ body {
 .contact-list li {
   font-family: "Noto Serif Georgian", serif;
   font-size: 16px;
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -441,7 +467,7 @@ body {
 }
 
 .contact-list i {
-  color: #235439;
+  color: var(--header-bg);
   font-size: 18px;
   width: 20px;
 }
@@ -461,11 +487,9 @@ body {
   overflow: hidden;
 }
 
-
-
 footer {
-  background-color: #1a3f2b; 
-  color: white;
+  background-color: var(--footer-bg);
+  color: var(--white);
   padding-top: 60px;
   position: relative;
   overflow: hidden;
@@ -477,7 +501,12 @@ footer {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #235439 0%, #c9a260 50%, #235439 100%);
+  background: linear-gradient(
+    90deg,
+    var(--header-bg) 0%,
+    var(--gold-accent) 50%,
+    var(--header-bg) 100%
+  );
 }
 
 .footer-container {
@@ -486,61 +515,73 @@ footer {
   padding: 0 20px 40px 20px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: stretch;
   gap: 40px;
 }
 
 .footer-col {
   flex: 1;
   min-width: 220px;
-  display: block;
-}
-
-
-.brand-col {
   display: flex;
   flex-direction: column;
+}
+
+.brand-col {
   align-items: center;
   text-align: center;
+  height: 100%;
 }
 
 .brand-col .footer-logo {
   width: 100px;
-  margin-bottom: 20px;
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+
+  margin-bottom: 0;
 }
 
 .brand-desc {
   font-family: "Noto Serif Georgian", serif;
   font-size: 14px;
   line-height: 1.6;
-  color: #aebfb5;
-  margin-bottom: 25px;
+  color: var(--gold-accent);
   max-width: 250px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
-/* Headers */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.links-col,
+.newsletter-col {
+  align-items: center;
+  text-align: center;
+}
+
 .footer-col h3 {
   font-family: "Mark Geo CAPS", sans-serif;
-  color: #c9a260; 
+  color: var(--gold-accent);
   font-size: 18px;
   margin-bottom: 25px;
   position: relative;
   display: inline-block;
+  margin-top: 0;
 }
 
-/* Underline Effect for Headers */
 .footer-col h3::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: -8px;
   width: 40px;
   height: 2px;
-  background-color: #5ca565;
+  background-color: var(--btn-green);
+  transform: translateX(-50%);
 }
 
-/* Links List */
 .footer-links,
 .contact-details {
   list-style: none;
@@ -554,71 +595,50 @@ footer {
 
 .footer-links a {
   text-decoration: none;
-  color: #e0e0e0;
+  color: var(--footer-link-text);
   font-family: "Noto Serif Georgian", sans-serif;
   font-size: 14px;
   transition: all 0.3s ease;
   display: inline-block;
 }
 
-
 .footer-links a:hover {
-  color: #c9a260;
+  color: var(--gold-accent);
   transform: translateX(8px);
-}
-
-
-.contact-details li {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 15px;
-  color: #e0e0e0;
-  font-family: "Noto Serif Georgian", sans-serif;
-  font-size: 14px;
-}
-
-.contact-details i {
-  color: #c9a260;
-  font-size: 18px;
-  margin-top: 3px;
-}
-
-.social-icons {
-  display: flex;
-  gap: 12px;
 }
 
 .social-icons a {
   width: 40px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--footer-border-dark);
+  border: 1px solid var(--footer-border-light);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  color: white;
+  color: var(--white);
   text-decoration: none;
   transition: 0.3s;
 }
 
 .social-icons a:hover {
-  background-color: #c9a260;
-  color: #235439;
+  background-color: var(--gold-accent);
+  color: var(--header-bg);
   transform: translateY(-3px);
 }
 
 .newsletter-col p {
   font-family: "Noto Serif Georgian";
   font-size: 13px;
-  color: #aebfb5;
+  color: var(--footer-text-muted);
   margin-bottom: 15px;
 }
 
 .footer-form {
   display: flex;
   position: relative;
+  width: 100%;
+  max-width: 300px;
 }
 
 .footer-form input {
@@ -627,16 +647,16 @@ footer {
   padding-right: 50px;
   border-radius: 25px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.05);
-  color: white;
+  background-color: var(--footer-border-dark);
+  color: var(--white);
   font-family: "Noto Serif Georgian";
   outline: none;
   transition: 0.3s;
 }
 
 .footer-form input:focus {
-  border-color: #c9a260;
-  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold-accent);
+  background-color: var(--footer-border-light);
 }
 
 .footer-form button {
@@ -647,29 +667,28 @@ footer {
   width: 35px;
   border-radius: 50%;
   border: none;
-  background-color: #c9a260;
-  color: #235439;
+  background-color: var(--gold-accent);
+  color: var(--header-bg);
   cursor: pointer;
   transition: 0.3s;
 }
 
 .footer-form button:hover {
-  background-color: white;
+  background-color: var(--white);
 }
 
-
 .footer-bottom {
-  background-color: #122e1f; 
+  background-color: var(--footer-bottom-bg);
   text-align: center;
   padding: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--footer-border-dark);
 }
 
 .footer-bottom p {
   margin: 0;
   font-family: "Noto Serif Georgian";
   font-size: 12px;
-  color: #6d8a78;
+  color: var(--footer-bottom-text);
 }
 
 @media screen and (max-width: 900px) {
@@ -712,6 +731,10 @@ footer {
   .partners-container {
     flex-direction: column;
     gap: 30px;
+  }
+
+  .footer-container {
+    align-items: center;
   }
 }
 
@@ -779,7 +802,6 @@ footer {
     width: 100%;
   }
 
- 
   .footer-container {
     flex-direction: column;
     text-align: center;
@@ -796,9 +818,25 @@ footer {
 
   .social-icons {
     justify-content: center;
+    margin-top: 20px;
   }
 
   .brand-desc {
-    margin: 0 auto 25px auto;
+    margin: 0 auto 0 auto;
   }
+
+  .brand-col {
+    height: auto;
+  }
+}
+.css-modal-window {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay);
+  backdrop-filter: blur(5px);
 }
