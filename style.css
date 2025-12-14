@@ -27,19 +27,52 @@
 body {
   margin: 0;
   background-color: var(--main-bg);
+  overflow-x: hidden;
+}
+
+.gradient-border {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--header-bg) 0%,
+    var(--gold-accent) 50%,
+    var(--header-bg) 100%
+  );
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.border-top-rounded {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.border-bottom-rounded {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.footer-absolute-border {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .heading {
   height: auto;
   background-color: var(--header-bg);
   font-family: Mark Geo CAPS;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-radius: 0;
   margin-bottom: 20px;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 4px 12px var(--header-shadow);
+  display: flex;
+  flex-direction: column;
 }
 
 .heading-container {
@@ -123,15 +156,18 @@ body {
   box-shadow: 0 0 15px var(--gold-hover);
 }
 
+.cover-wrapper {
+  width: 100%;
+  margin-bottom: 0;
+}
+
 .cover {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-radius: 0;
   height: 100%;
   width: 100%;
   object-fit: cover;
   max-height: 600px;
+  display: block;
 }
 
 .about-us-container {
@@ -407,7 +443,7 @@ body {
   width: 150px;
   height: 150px;
   background-image: url(/media/partner2.jpg);
-  background-size: fit;
+  background-size: contain;
   background-color: var(--white);
   display: flex;
   align-items: center;
@@ -495,20 +531,6 @@ footer {
   overflow: hidden;
 }
 
-.footer-top-border {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--header-bg) 0%,
-    var(--gold-accent) 50%,
-    var(--header-bg) 100%
-  );
-}
-
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -535,24 +557,25 @@ footer {
 .brand-col .footer-logo {
   width: 100px;
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
-
-  margin-bottom: 0;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .brand-desc {
   font-family: "Noto Serif Georgian", serif;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--gold-accent);
+  color: var(--footer-text-muted);
   max-width: 250px;
   margin-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .social-icons {
   display: flex;
   gap: 12px;
   justify-content: center;
+  margin-top: 0;
 }
 
 .links-col,
@@ -762,7 +785,11 @@ footer {
   .about-us-container h1,
   .section-header h2,
   .partners-title h2 {
-    font-size: 24px;
+    font-size: 26px;
+  }
+
+  .about-us-container p {
+    padding: 0 10px;
   }
 
   .products-grid {
@@ -818,25 +845,14 @@ footer {
 
   .social-icons {
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   .brand-desc {
-    margin: 0 auto 0 auto;
+    margin: 0 auto 15px auto;
   }
 
   .brand-col {
     height: auto;
   }
-}
-.css-modal-window {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--modal-overlay);
-  backdrop-filter: blur(5px);
 }
