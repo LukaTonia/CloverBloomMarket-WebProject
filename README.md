@@ -3,7 +3,7 @@
 * **Luka Tonia** (GitHub)
 
 ## Description
-This app represents a final project in front-end development 2025 at Caucasus International University. The project was brought to its "finalized" form in 12 days.
+This app represents a final project in front-end development 2025 at Caucasus International University. 
 
 ## Features
 * **Supermarket Simulation:** App mimics a functional Supermarket Page.
