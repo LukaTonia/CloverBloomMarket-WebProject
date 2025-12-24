@@ -36,4 +36,38 @@ var bottomPartnerBtn = document.getElementById("bottomPartnerBtn");
   
   bottomPartnerBtn.onclick = function() {
     partnerModal.style.display = "block";
-  }
+}
+  
+
+function handleFormSubmit(event, formName) {
+  event.preventDefault(); 
+
+ 
+  const btn = event.target.querySelector('button');
+  const originalText = btn.innerText;
+  btn.innerText = "იგზავნება..."; 
+  btn.disabled = true;
+
+
+  setTimeout(() => {
+    alert(`მადლობა! თქვენი ${formName} წარმატებით გაიგზავნა.`);
+    event.target.reset();
+    btn.innerText = originalText;
+    btn.disabled = false;
+    
+   
+    document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+  }, 1500);
+}
+
+
+const partnerForm = document.querySelector('#partnershipModal form');
+if (partnerForm) {
+    partnerForm.addEventListener('submit', (e) => handleFormSubmit(e, 'მოთხოვნა'));
+    
+}
+
+const vacancyForm = document.querySelector('#vacancyModal form');
+if (vacancyForm) {
+    vacancyForm.addEventListener('submit', (e) => handleFormSubmit(e, 'განაცხადი'));
+}
