@@ -1,19 +1,46 @@
-
+// product data
 const productsData = [
-    { id: 1, title: "წითელი ღვინო", category: "სასმელი", price: 24.50, icon: "fa-wine-bottle" },
-    { id: 2, title: "პური თონი", category: "პურ-ფუნთუშეული", price: 1.20, icon: "fa-bread-slice" },
-    { id: 3, title: "ყავა მარცვალი", category: "ჩაი, ყავა", price: 18.00, icon: "fa-mug-hot" },
-    { id: 4, title: "შოკოლადი", category: "ტკბილეული", price: 4.50, icon: "fa-cookie-bite" },
-    { id: 5, title: "ყველი იმერული", category: "რძის ნაწარმი", price: 14.00, icon: "fa-cheese" },
-    { id: 6, title: "ზეთი", category: "ბაკალეა", price: 8.50, icon: "fa-bottle-droplet" },
-    { id: 7, title: "ორაგული", category: "ზღვის პროდუქტები", price: 35.00, icon: "fa-fish" },
-    { id: 8, title: "სარეცხი სითხე", category: "ჰიგიენა", price: 12.00, icon: "fa-pump-soap" }
+    { id: 1, title: "წითელი ღვინო", category: "სასმელი", price: 24.50, image: "https://placehold.co/400x400/235439/white?text=Wine" },
+    { id: 2, title: "პური თონი", category: "პურ-ფუნთუშეული", price: 1.20, image: "https://placehold.co/400x400/c9a260/white?text=Bread" },
+    { id: 3, title: "ყავა მარცვალი", category: "ჩაი, ყავა", price: 18.00, image: "https://placehold.co/400x400/333/white?text=Coffee" },
+    { id: 4, title: "შოკოლადი", category: "ტკბილეული", price: 4.50, image: "https://placehold.co/400x400/555/white?text=Choco" },
+    { id: 5, title: "ყველი იმერული", category: "რძის ნაწარმი", price: 14.00, image: "https://placehold.co/400x400/777/white?text=Cheese" },
+    { id: 6, title: "ზეთი", category: "ბაკალეა", price: 8.50, image: "https://placehold.co/400x400/888/white?text=Oil" },
+    { id: 7, title: "ორაგული", category: "ზღვის პროდუქტები", price: 35.00, image: "https://placehold.co/400x400/999/white?text=Fish" },
+    { id: 8, title: "სარეცხი სითხე", category: "ჰიგიენა", price: 12.00, image: "https://placehold.co/400x400/000/white?text=Soap" }
 ];
-
 
 let cart = JSON.parse(localStorage.getItem('cloverCart')) || [];
 
+// simple product card render
+function renderProductGrid(filterCategory = 'all') {
+    const grid = document.querySelector('.main-products-grid');
+    if (!grid) return;
 
+    grid.innerHTML = '';
+
+    const filteredData = filterCategory === 'all' 
+        ? productsData 
+        : productsData.filter(p => p.category === filterCategory || (filterCategory === 'სასმელი' && p.category === 'ჩაი, ყავა'));
+
+    filteredData.forEach(product => {
+        grid.innerHTML += `
+            <div class="simple-card" style="background-image: url('${product.image}');">
+                <div class="card-overlay">
+                    <h3 class="card-title">${product.title}</h3>
+                    <div class="card-bottom-row">
+                        <span class="card-price">${product.price.toFixed(2)} ₾</span>
+                        <button class="add-cart-btn" onclick="addToCart(${product.id})">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+// cart  logic
 function addToCart(id) {
     const product = productsData.find(p => p.id === id);
     if (!product) return;
@@ -32,27 +59,24 @@ function addToCart(id) {
     }
 
     updateCartUI();
-    
-    alert(`${product.title} დაემატა კალათაში!`);
+    // Simple feedback
+    // alert(`${product.title} დაემატა!`); 
 }
-
 
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCartUI();
 }
 
-
 function updateCartUI() {
-  
     localStorage.setItem('cloverCart', JSON.stringify(cart));
 
-   
+    // Update Badge
     const countBadge = document.querySelector('.nav-cart-count');
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     if (countBadge) countBadge.innerText = totalCount;
 
-   
+    // Update Modal List
     const container = document.getElementById('cart-items-container');
     const totalElem = document.getElementById('cart-total');
 
@@ -72,7 +96,7 @@ function updateCartUI() {
                         <h4>${item.title}</h4>
                         <small>${item.price.toFixed(2)} ₾ x ${item.quantity}</small>
                     </div>
-                    <div class="item-actions">
+                    <div class="item-actions" style="display:flex; align-items:center; gap:10px;">
                         <span class="item-price">${(item.price * item.quantity).toFixed(2)} ₾</span>
                         <button class="remove-btn" onclick="removeFromCart(${index})">
                             <i class="fa-solid fa-trash"></i>
@@ -85,31 +109,19 @@ function updateCartUI() {
     }
 }
 
-
-function renderProductGrid() {
-    const grid = document.querySelector('.main-products-grid');
-    if (!grid) return; 
-
-    grid.innerHTML = '';
-    productsData.forEach(product => {
-        grid.innerHTML += `
-            <div class="store-card">
-                <div class="card-image"><i class="fa-solid ${product.icon}"></i></div>
-                <div class="card-details">
-                    <h3>${product.title}</h3>
-                    <p class="category">${product.category}</p>
-                    <div class="price-row">
-                        <span class="price">${product.price.toFixed(2)} ₾</span>
-                        <button class="add-btn" onclick="addToCart(${product.id})">
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
+// categories  logic code
+function filterProducts(category) {
+    
+    const buttons = document.querySelectorAll('.cat-btn');
+    buttons.forEach(btn => {
+        if(btn.innerText.includes(category) || (category === 'all' && btn.innerText === 'ყველა')) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
     });
+    renderProductGrid(category);
 }
-
 
 function processCheckout() {
     if (cart.length === 0) {
@@ -131,8 +143,33 @@ function processCheckout() {
     }
 }
 
-
+// cart modal open/close logic
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
     renderProductGrid();
+
+    // Open Cart Logic
+    const cartModal = document.getElementById('cartModal');
+    const openCartBtn = document.getElementById('open-cart-btn');
+    const closeCartBtn = document.querySelector('.cart-close');
+
+    if(openCartBtn && cartModal) {
+        openCartBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            cartModal.style.display = 'block';
+        });
+    }
+
+    if(closeCartBtn) {
+        closeCartBtn.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+    }
+
+    // Close cart if clicking outside
+    window.addEventListener('click', (e) => {
+        if(e.target == cartModal) {
+            cartModal.style.display = 'none';
+        }
+    });
 });
