@@ -71,3 +71,29 @@ const vacancyForm = document.querySelector('#vacancyModal form');
 if (vacancyForm) {
     vacancyForm.addEventListener('submit', (e) => handleFormSubmit(e, 'განაცხადი'));
 }
+
+const newsletterForm = document.querySelector('.footer-form');
+    
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const input = this.querySelector('input');
+            const btn = this.querySelector('button');
+            
+          
+            if(input.value.trim() === "") return;
+
+        
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; 
+            btn.disabled = true;
+
+            setTimeout(() => {
+                alert("გამოწერა წარმატებულია");
+                input.value = ""; 
+                btn.innerHTML = originalHTML; 
+                btn.disabled = false;
+            }, 1000);
+        });
+    }
