@@ -1,3 +1,6 @@
+/* =========================================
+   1. GLOBAL VARIABLES & SETTINGS
+   ========================================= */
 :root {
   --main-bg: #f4f1ea;
   --header-bg: #235439;
@@ -8,12 +11,15 @@
   --text-grey: #555555;
   --border-grey: #aaaaaa;
   --input-border: #555555;
+
   --modal-overlay: rgba(0, 0, 0, 0.8);
   --modal-shadow: rgba(0, 0, 0, 0.5);
   --header-shadow: rgba(35, 84, 57, 0.3);
+
   --btn-green: #5ca565;
   --btn-green-hover: #5ba566;
   --icon-bg-white: #ffffff;
+
   --footer-bg: #1a3f2b;
   --footer-bottom-bg: #122e1f;
   --footer-text-muted: #aebfb5;
@@ -22,6 +28,7 @@
   --footer-border-dark: rgba(255, 255, 255, 0.05);
   --footer-border-light: rgba(255, 255, 255, 0.1);
   --footer-bottom-text: #6d8a78;
+
   --site-side-padding: 40px;
   --logo-width: 120px;
 }
@@ -30,6 +37,8 @@ body {
   margin: 0;
   background-color: var(--main-bg);
   overflow-x: hidden;
+  /* Improve tap highlight color on mobile */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .gradient-border {
@@ -63,6 +72,9 @@ body {
   left: 0;
 }
 
+/* =========================================
+   2. HEADER STYLES
+   ========================================= */
 .heading {
   height: auto;
   background-color: var(--header-bg);
@@ -75,31 +87,36 @@ body {
   box-shadow: 0 4px 12px var(--header-shadow);
   display: flex;
   flex-direction: column;
+  /* Handles iPhone notch area */
+  padding-top: env(safe-area-inset-top);
 }
 
 .heading-container {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
   align-items: center;
   width: 100%;
   max-width: 1200px;
   min-height: 120px;
+  margin: 0 auto;
   padding: 10px var(--site-side-padding);
   box-sizing: border-box;
 }
 
+/* --- Header Links --- */
 .heading-nav nav a {
   color: var(--white);
   text-decoration: none;
-  transition: 0.3s;
+  transition: color 0.3s ease; /* Smooth transition */
 }
 
 .heading-nav nav a:visited {
   color: var(--white);
 }
 
-.heading-nav nav a:hover {
+/* Added :active for mobile tap effect */
+.heading-nav nav a:hover,
+.heading-nav nav a:active {
   color: var(--gold-accent);
 }
 
@@ -117,7 +134,9 @@ body {
   transition-duration: 0.2s;
 }
 
-#vacancy-link:hover {
+/* Added :active for mobile tap effect */
+#vacancy-link:hover,
+#vacancy-link:active {
   color: var(--gold-accent);
 }
 
@@ -135,6 +154,7 @@ body {
   display: block;
 }
 
+/* --- Partner Button --- */
 .partnering {
   width: 180px;
   height: 50px;
@@ -149,12 +169,17 @@ body {
   flex-shrink: 0;
 }
 
-.partnering:hover {
+/* Added :active so it lights up when tapped on phone */
+.partnering:hover,
+.partnering:active {
   background-color: transparent;
   color: var(--gold-accent);
   box-shadow: 0 0 15px var(--gold-hover);
 }
 
+/* =========================================
+   3. CONTENT SECTIONS
+   ========================================= */
 .cover-wrapper {
   width: 100%;
   margin-bottom: 0;
@@ -200,6 +225,7 @@ body {
   margin: 0 auto;
 }
 
+/* --- Modals --- */
 .modal {
   display: none;
   position: fixed;
@@ -293,11 +319,13 @@ body {
   transition: 0.3s;
 }
 
-.send-btn:hover {
+.send-btn:hover,
+.send-btn:active {
   background-color: var(--gold-accent);
   color: black;
 }
 
+/* --- Section Headers --- */
 .section-header {
   text-align: center;
   margin-bottom: 40px;
@@ -318,6 +346,7 @@ body {
   margin: 0 auto;
 }
 
+/* --- Products --- */
 .products-section {
   background-color: var(--header-bg);
   padding: 60px 20px;
@@ -343,7 +372,9 @@ body {
   transition: transform 0.3s;
 }
 
-.product-item:hover {
+/* Tap effect for products */
+.product-item:hover,
+.product-item:active {
   transform: translateY(-5px);
 }
 
@@ -359,6 +390,7 @@ body {
   line-height: 1.4;
 }
 
+/* --- Advantages --- */
 .advantages-section {
   padding: 60px 20px;
   background-color: var(--main-bg);
@@ -402,6 +434,7 @@ body {
   font-size: 14px;
 }
 
+/* --- Partners --- */
 .partners-section {
   background-color: var(--header-bg);
   padding: 60px 20px;
@@ -446,10 +479,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-
   border: 1px solid #eee;
   border-radius: 8px;
 }
+
 .logo-box2 {
   width: 150px;
   height: 150px;
@@ -458,7 +491,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-
   border: 1px solid #eee;
   border-radius: 8px;
 }
@@ -476,11 +508,13 @@ body {
   transition: 0.3s;
 }
 
-.white-partner-btn:hover {
+.white-partner-btn:hover,
+.white-partner-btn:active {
   background-color: var(--gold-accent);
   color: var(--white);
 }
 
+/* --- Contact --- */
 .contact-section {
   display: flex;
   justify-content: space-between;
@@ -534,6 +568,9 @@ body {
   overflow: hidden;
 }
 
+/* =========================================
+   4. FOOTER STYLES
+   ========================================= */
 footer {
   background-color: var(--footer-bg);
   color: var(--white);
@@ -544,33 +581,55 @@ footer {
 
 .footer-container {
   display: flex;
-
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-
   padding: 0 var(--site-side-padding) 40px var(--site-side-padding);
   box-sizing: border-box;
-  gap: 40px;
+  gap: 20px;
 }
 
 .footer-col {
-  flex: 1;
-  min-width: 220px;
   display: flex;
   flex-direction: column;
+}
 
+/* Brand Column (Left) */
+.brand-col {
+  flex: 3.5;
+  gap: 15px;
   align-items: flex-start;
   text-align: left;
 }
 
-.brand-col {
+/* Links Column (Center) */
+.links-col {
+  flex: 2;
+  align-items: center;
+  padding-left: 0;
+}
+
+/* Newsletter Column (Right) */
+.newsletter-col {
+  flex: 4.5;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-brand-link {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 25px;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  margin-bottom: 0;
+  transition: opacity 0.3s ease;
+}
+
+.footer-brand-link:hover,
+.footer-brand-link:active {
+  opacity: 0.8;
 }
 
 .brand-col .footer-logo {
@@ -581,24 +640,21 @@ footer {
   margin: 0;
 }
 
-.brand-desc {
+.footer-brand-name {
+  font-family: "Mark Geo CAPS", sans-serif;
+  color: var(--white);
+  font-size: 22px;
+  line-height: 1.2;
   text-align: left;
-  margin: 0 0 15px 0;
-  padding: 0;
-  line-height: 1.5;
+  max-width: 200px;
 }
 
 .social-icons {
   display: flex;
   gap: 12px;
   justify-content: flex-start;
-  margin: 0;
-}
-
-.links-col,
-.newsletter-col {
-  align-items: flex-start;
-  text-align: left;
+  margin-top: 10px;
+  padding-left: 5px;
 }
 
 .footer-col h3 {
@@ -614,22 +670,19 @@ footer {
 .footer-col h3::after {
   content: "";
   position: absolute;
-
   left: 0;
   bottom: -8px;
   width: 40px;
   height: 2px;
   background-color: var(--btn-green);
-
-  transform: none;
 }
 
-.footer-links,
-.contact-details {
+.footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
   text-align: left;
+  min-width: 120px;
 }
 
 .footer-links li {
@@ -645,29 +698,10 @@ footer {
   display: inline-block;
 }
 
-.footer-links a:hover {
+.footer-links a:hover,
+.footer-links a:active {
   color: var(--gold-accent);
   transform: translateX(8px);
-}
-
-.social-icons a {
-  width: 40px;
-  height: 40px;
-  background-color: var(--footer-border-dark);
-  border: 1px solid var(--footer-border-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: var(--white);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.social-icons a:hover {
-  background-color: var(--gold-accent);
-  color: var(--header-bg);
-  transform: translateY(-3px);
 }
 
 .newsletter-col p {
@@ -675,7 +709,13 @@ footer {
   font-size: 13px;
   color: var(--footer-text-muted);
   margin-bottom: 15px;
-  text-align: left;
+  text-align: right;
+  max-width: 300px;
+}
+
+.newsletter-col h3::after {
+  left: auto;
+  right: 0;
 }
 
 .footer-form {
@@ -717,14 +757,37 @@ footer {
   transition: 0.3s;
 }
 
-.footer-form button:hover {
+.footer-form button:hover,
+.footer-form button:active {
   background-color: var(--white);
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background-color: var(--footer-border-dark);
+  border: 1px solid var(--footer-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--white);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icons a:hover,
+.social-icons a:active {
+  background-color: var(--gold-accent);
+  color: var(--header-bg);
+  transform: translateY(-3px);
 }
 
 .footer-bottom {
   background-color: var(--footer-bottom-bg);
   text-align: center;
   padding: 20px;
+  padding-bottom: env(safe-area-inset-bottom);
   border-top: 1px solid var(--footer-border-dark);
 }
 
@@ -735,6 +798,11 @@ footer {
   color: var(--footer-bottom-text);
 }
 
+/* =========================================
+   5. MOBILE RESPONSIVE RULES
+   ========================================= */
+
+/* Tablet & Smaller (900px) */
 @media screen and (max-width: 900px) {
   .heading-container {
     flex-direction: column;
@@ -778,36 +846,55 @@ footer {
     gap: 30px;
   }
 
+  /* Center Footer on Tablets/Mobile */
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 40px;
   }
 
   .footer-col,
   .brand-col,
   .links-col,
   .newsletter-col {
+    width: 100%;
     align-items: center;
     text-align: center;
+    flex: auto;
+    padding-left: 0;
   }
 
-  .brand-desc,
-  .newsletter-col p,
-  .footer-links {
+  .footer-brand-link {
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
   }
 
-  .footer-col h3::after {
-    left: 50%;
-    transform: translateX(-50%);
+  .footer-brand-name {
+    text-align: center;
+    margin-top: 10px;
   }
 
   .social-icons {
+    padding-left: 0;
     justify-content: center;
+  }
+
+  .newsletter-col p {
+    text-align: center;
+    margin: 0 auto 15px auto;
+  }
+
+  .footer-col h3::after,
+  .newsletter-col h3::after {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
   }
 }
 
+/* Phone (600px - iPhone 14 Pro Max fits here) */
 @media screen and (max-width: 600px) {
   .heading-nav nav {
     flex-direction: column;
@@ -839,12 +926,14 @@ footer {
     padding: 0 10px;
   }
 
+  /* Improved grid for iPhone width */
   .products-grid {
     gap: 20px;
+    padding: 0 10px;
   }
 
   .product-item {
-    width: 45%;
+    width: 44%;
   }
 
   .product-item i {
@@ -861,7 +950,8 @@ footer {
     width: 100%;
   }
 
-  .logo-box {
+  .logo-box1,
+  .logo-box2 {
     width: 120px;
     height: 120px;
   }
@@ -874,9 +964,5 @@ footer {
 
   .partnering {
     width: 100%;
-  }
-
-  .brand-desc {
-    margin: 0 auto 15px auto;
   }
 }
