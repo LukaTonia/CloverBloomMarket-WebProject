@@ -37,7 +37,6 @@ body {
   margin: 0;
   background-color: var(--main-bg);
   overflow-x: hidden;
-  /* Improve tap highlight color on mobile */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -107,14 +106,14 @@ body {
 .heading-nav nav a {
   color: var(--white);
   text-decoration: none;
-  transition: color 0.3s ease; /* Smooth transition */
+  transition: color 0.3s ease;
 }
 
 .heading-nav nav a:visited {
   color: var(--white);
 }
 
-/* Added :active for mobile tap effect */
+/* :active for mobile tap effect */
 .heading-nav nav a:hover,
 .heading-nav nav a:active {
   color: var(--gold-accent);
@@ -134,7 +133,7 @@ body {
   transition-duration: 0.2s;
 }
 
-/* Added :active for mobile tap effect */
+/*  :active for mobile tap effect */
 #vacancy-link:hover,
 #vacancy-link:active {
   color: var(--gold-accent);
@@ -169,7 +168,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Added :active so it lights up when tapped on phone */
+/*  :active so it lights up when tapped on phone */
 .partnering:hover,
 .partnering:active {
   background-color: transparent;
@@ -798,11 +797,9 @@ footer {
   color: var(--footer-bottom-text);
 }
 
-/* =========================================
-   5. MOBILE RESPONSIVE RULES
-   ========================================= */
 
-/* Tablet & Smaller (900px) */
+
+/*tablet*/
 @media screen and (max-width: 900px) {
   .heading-container {
     flex-direction: column;
@@ -894,7 +891,7 @@ footer {
   }
 }
 
-/* Phone (600px - iPhone 14 Pro Max fits here) */
+/* iPhone 14 Pro Max fits here*/
 @media screen and (max-width: 600px) {
   .heading-nav nav {
     flex-direction: column;
@@ -926,7 +923,7 @@ footer {
     padding: 0 10px;
   }
 
-  /* Improved grid for iPhone width */
+ 
   .products-grid {
     gap: 20px;
     padding: 0 10px;
