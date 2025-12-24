@@ -1,6 +1,3 @@
-/* =========================================
-   1. GLOBAL VARIABLES & SETTINGS
-   ========================================= */
 :root {
   --main-bg: #f4f1ea;
   --header-bg: #235439;
@@ -11,15 +8,12 @@
   --text-grey: #555555;
   --border-grey: #aaaaaa;
   --input-border: #555555;
-
   --modal-overlay: rgba(0, 0, 0, 0.8);
   --modal-shadow: rgba(0, 0, 0, 0.5);
   --header-shadow: rgba(35, 84, 57, 0.3);
-
   --btn-green: #5ca565;
   --btn-green-hover: #5ba566;
   --icon-bg-white: #ffffff;
-
   --footer-bg: #1a3f2b;
   --footer-bottom-bg: #122e1f;
   --footer-text-muted: #aebfb5;
@@ -28,9 +22,8 @@
   --footer-border-dark: rgba(255, 255, 255, 0.05);
   --footer-border-light: rgba(255, 255, 255, 0.1);
   --footer-bottom-text: #6d8a78;
-
   --site-side-padding: 40px;
-  --logo-width: 120px;
+  --logo-width: 150px;
 }
 
 body {
@@ -71,9 +64,6 @@ body {
   left: 0;
 }
 
-/* =========================================
-   2. HEADER STYLES
-   ========================================= */
 .heading {
   height: auto;
   background-color: var(--header-bg);
@@ -86,7 +76,6 @@ body {
   box-shadow: 0 4px 12px var(--header-shadow);
   display: flex;
   flex-direction: column;
-  /* Handles iPhone notch area */
   padding-top: env(safe-area-inset-top);
 }
 
@@ -96,13 +85,12 @@ body {
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  min-height: 120px;
+  min-height: 100px;
   margin: 0 auto;
-  padding: 10px var(--site-side-padding);
+  padding: 0 var(--site-side-padding);
   box-sizing: border-box;
 }
 
-/* --- Header Links --- */
 .heading-nav nav a {
   color: var(--white);
   text-decoration: none;
@@ -113,7 +101,6 @@ body {
   color: var(--white);
 }
 
-/* :active for mobile tap effect */
 .heading-nav nav a:hover,
 .heading-nav nav a:active {
   color: var(--gold-accent);
@@ -133,7 +120,6 @@ body {
   transition-duration: 0.2s;
 }
 
-/*  :active for mobile tap effect */
 #vacancy-link:hover,
 #vacancy-link:active {
   color: var(--gold-accent);
@@ -153,11 +139,10 @@ body {
   display: block;
 }
 
-/* --- Partner Button --- */
 .partnering {
   width: 180px;
   height: 50px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Mark Geo CAPS", sans-serif;
   background-color: var(--gold-accent);
   color: var(--white);
@@ -168,7 +153,6 @@ body {
   flex-shrink: 0;
 }
 
-/*  :active so it lights up when tapped on phone */
 .partnering:hover,
 .partnering:active {
   background-color: transparent;
@@ -176,9 +160,6 @@ body {
   box-shadow: 0 0 15px var(--gold-hover);
 }
 
-/* =========================================
-   3. CONTENT SECTIONS
-   ========================================= */
 .cover-wrapper {
   width: 100%;
   margin-bottom: 0;
@@ -224,7 +205,6 @@ body {
   margin: 0 auto;
 }
 
-/* --- Modals --- */
 .modal {
   display: none;
   position: fixed;
@@ -324,7 +304,6 @@ body {
   color: black;
 }
 
-/* --- Section Headers --- */
 .section-header {
   text-align: center;
   margin-bottom: 40px;
@@ -345,7 +324,6 @@ body {
   margin: 0 auto;
 }
 
-/* --- Products --- */
 .products-section {
   background-color: var(--header-bg);
   padding: 60px 20px;
@@ -371,7 +349,6 @@ body {
   transition: transform 0.3s;
 }
 
-/* Tap effect for products */
 .product-item:hover,
 .product-item:active {
   transform: translateY(-5px);
@@ -389,7 +366,6 @@ body {
   line-height: 1.4;
 }
 
-/* --- Advantages --- */
 .advantages-section {
   padding: 60px 20px;
   background-color: var(--main-bg);
@@ -433,7 +409,6 @@ body {
   font-size: 14px;
 }
 
-/* --- Partners --- */
 .partners-section {
   background-color: var(--header-bg);
   padding: 60px 20px;
@@ -513,7 +488,6 @@ body {
   color: var(--white);
 }
 
-/* --- Contact --- */
 .contact-section {
   display: flex;
   justify-content: space-between;
@@ -567,10 +541,6 @@ body {
   overflow: hidden;
 }
 
-
-/* =========================================
-   4. FOOTER STYLES
-   ========================================= */
 footer {
   background-color: var(--footer-bg);
   color: var(--white);
@@ -588,7 +558,7 @@ footer {
   margin: 0 auto;
   padding: 0 var(--site-side-padding) 40px var(--site-side-padding);
   box-sizing: border-box;
-  gap: 20px;
+  gap: 200px;
 }
 
 .footer-col {
@@ -596,7 +566,6 @@ footer {
   flex-direction: column;
 }
 
-/* Brand Column (Left) */
 .brand-col {
   flex: 3.5;
   gap: 15px;
@@ -604,27 +573,15 @@ footer {
   text-align: left;
 }
 
-/* Links Column (Center) */
-.links-col {
-  flex: 2;
-  align-items: center;
-  padding-left: 0;
-}
-
-/* Newsletter Column (Right) */
-.newsletter-col {
-  flex: 4.5;
-  align-items: flex-end;
-  text-align: right;
-}
-
 .footer-brand-link {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 15px;
   text-decoration: none;
   margin-bottom: 0;
   transition: opacity 0.3s ease;
+  width: 150px;
 }
 
 .footer-brand-link:hover,
@@ -645,16 +602,22 @@ footer {
   color: var(--white);
   font-size: 22px;
   line-height: 1.2;
-  text-align: left;
-  max-width: 200px;
+  text-align: center;
+  width: 100%;
+  padding-top: 0;
 }
 
-.social-icons {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-start;
-  margin-top: 10px;
-  padding-left: 5px;
+.links-col {
+  flex: 2;
+  align-items: center;
+  text-align: center;
+  padding-left: 0;
+}
+
+.newsletter-col {
+  flex: 4.5;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .footer-col h3 {
@@ -670,18 +633,19 @@ footer {
 .footer-col h3::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: -8px;
   width: 40px;
   height: 2px;
   background-color: var(--btn-green);
+  transform: translateX(-50%);
 }
 
 .footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: left;
+  text-align: center;
   min-width: 120px;
 }
 
@@ -711,11 +675,14 @@ footer {
   margin-bottom: 15px;
   text-align: right;
   max-width: 300px;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .newsletter-col h3::after {
   left: auto;
   right: 0;
+  transform: none;
 }
 
 .footer-form {
@@ -723,6 +690,7 @@ footer {
   position: relative;
   width: 100%;
   max-width: 300px;
+  margin: 0 0 0 auto;
 }
 
 .footer-form input {
@@ -762,32 +730,11 @@ footer {
   background-color: var(--white);
 }
 
-.social-icons a {
-  width: 40px;
-  height: 40px;
-  background-color: var(--footer-border-dark);
-  border: 1px solid var(--footer-border-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: var(--white);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.social-icons a:hover,
-.social-icons a:active {
-  background-color: var(--gold-accent);
-  color: var(--header-bg);
-  transform: translateY(-3px);
-}
-
 .footer-bottom {
   background-color: var(--footer-bottom-bg);
   text-align: center;
-  padding: 20px;
-  padding-bottom: env(safe-area-inset-bottom);
+  padding: 40px 20px;
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--footer-border-dark);
 }
 
@@ -798,9 +745,6 @@ footer {
   color: var(--footer-bottom-text);
 }
 
-
-
-/*tablet*/
 @media screen and (max-width: 900px) {
   .heading-container {
     flex-direction: column;
@@ -844,7 +788,6 @@ footer {
     gap: 30px;
   }
 
-  /* Center Footer on Tablets/Mobile */
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -867,6 +810,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
+    width: auto;
   }
 
   .footer-brand-name {
@@ -874,14 +819,13 @@ footer {
     margin-top: 10px;
   }
 
-  .social-icons {
-    padding-left: 0;
-    justify-content: center;
-  }
-
   .newsletter-col p {
     text-align: center;
     margin: 0 auto 15px auto;
+  }
+
+  .footer-form {
+    margin: 0 auto;
   }
 
   .footer-col h3::after,
@@ -892,7 +836,6 @@ footer {
   }
 }
 
-/* iPhone 14 Pro Max fits here*/
 @media screen and (max-width: 600px) {
   .heading-nav nav {
     flex-direction: column;
@@ -924,7 +867,6 @@ footer {
     padding: 0 10px;
   }
 
- 
   .products-grid {
     gap: 20px;
     padding: 0 10px;
