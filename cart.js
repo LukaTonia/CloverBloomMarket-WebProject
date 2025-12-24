@@ -12,16 +12,22 @@ const productsData = [
 
 let cart = JSON.parse(localStorage.getItem('cloverCart')) || [];
 
-// --- 1. RENDER PRODUCTS ---
+//RENDER PRODUCTS ---
 function renderProductGrid(filterCategory = 'all') {
     const grid = document.querySelector('.main-products-grid');
     if (!grid) return;
 
     grid.innerHTML = '';
 
+    // Filter Logic:
+    
     const filteredData = filterCategory === 'all' 
         ? productsData 
-        : productsData.filter(p => p.category === filterCategory || (filterCategory === 'სასმელი' && p.category === 'ჩაი, ყავა'));
+        : productsData.filter(p => {
+           
+            return p.category.includes(filterCategory) || 
+                   (filterCategory === 'სასმელი' && p.category === 'ჩაი, ყავა'); 
+        });
 
     filteredData.forEach(product => {
         grid.innerHTML += `
@@ -40,7 +46,7 @@ function renderProductGrid(filterCategory = 'all') {
     });
 }
 
-// --- 2. CART LOGIC ---
+// CART LOGIC 
 function addToCart(id) {
     const product = productsData.find(p => p.id === id);
     if (!product) return;
@@ -68,15 +74,15 @@ function removeFromCart(index) {
 function updateCartUI() {
     localStorage.setItem('cloverCart', JSON.stringify(cart));
 
-    // Update Badge
+    
     const countBadge = document.querySelector('.nav-cart-count');
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     if (countBadge) countBadge.innerText = totalCount;
 
-    // Update Modal List
+    
     const container = document.getElementById('cart-items-container');
     const totalElem = document.getElementById('cart-total');
-    // Also update total inside Checkout Modal
+    
     const finalTotalElem = document.getElementById('final-total');
 
     if (container && totalElem) {
@@ -111,56 +117,74 @@ function updateCartUI() {
     }
 }
 
-// --- 3. CHECKOUT LOGIC (UPDATED) ---
+//  FILTERING BUTTON LOGIC 
+function filterProducts(category) {
+    
+    const buttons = document.querySelectorAll('.cat-btn');
+    
+    
+    buttons.forEach(btn => {
+        
+        const btnText = btn.innerText.trim();
+        
+        if(btnText === category || (category === 'all' && btnText === 'ყველა')) {
+            btn.classList.add('active'); 
+        } else {
+            btn.classList.remove('active'); 
+        }
+    });
 
-// Step 1: Open the Checkout Modal
+    
+    renderProductGrid(category);
+}
+
+//CHECKOUT LOGIC
 function processCheckout() {
     if (cart.length === 0) {
         alert("კალათა ცარიელია! დაამატეთ პროდუქტები.");
         return;
     }
-    // Close Cart Modal
+    
     document.getElementById('cartModal').style.display = 'none';
-    // Open Address Modal
+    
     document.getElementById('checkoutModal').style.display = 'block';
 }
 
-// Step 2: Handle Final Submit
+//  Final Submit
 function handleCheckoutSubmit(e) {
-    e.preventDefault(); // Stop page reload
+    e.preventDefault(); 
 
     const btn = e.target.querySelector('button[type="submit"]');
     const name = document.getElementById('custName').value;
     
-    // Loading State
+   
     const originalText = btn.innerText;
     btn.innerText = "მუშავდება...";
     btn.disabled = true;
 
     setTimeout(() => {
-        // Success Action
+        
         alert(`მადლობა ${name}! თქვენი შეკვეთა მიღებულია.\nკურიერი დაგიკავშირდებათ მითითებულ მისამართზე.`);
         
-        // Clear Cart
+        
         cart = [];
         updateCartUI();
         
-        // Reset Form & Close Modal
+        
         e.target.reset();
         document.getElementById('checkoutModal').style.display = 'none';
         
-        // Reset Button
+        
         btn.innerText = originalText;
         btn.disabled = false;
     }, 2000);
 }
 
-// --- 4. INITIALIZATION ---
+// INITIALIZATION 
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
     renderProductGrid();
 
-    // 1. Cart Modal Logic
     const cartModal = document.getElementById('cartModal');
     const openCartBtn = document.getElementById('open-cart-btn');
     const closeCartBtn = document.querySelector('.cart-close');
@@ -176,8 +200,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cartModal.style.display = 'none';
         });
     }
-
-    // 2. Checkout Modal Logic
+//checkout logic
+ 
     const checkoutModal = document.getElementById('checkoutModal');
     const closeCheckoutBtn = document.querySelector('.checkout-close');
     const checkoutForm = document.getElementById('checkoutForm');
@@ -192,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutForm.addEventListener('submit', handleCheckoutSubmit);
     }
 
-    // 3. Close Modals on Outside Click
+ //close modal on outside click
     window.addEventListener('click', (e) => {
         if(e.target == cartModal) cartModal.style.display = 'none';
         if(e.target == checkoutModal) checkoutModal.style.display = 'none';
