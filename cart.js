@@ -1,4 +1,4 @@
-// product data
+// --- PRODUCT DATA ---
 const productsData = [
     { id: 1, title: "წითელი ღვინო", category: "სასმელი", price: 24.50, image: "https://placehold.co/400x400/235439/white?text=Wine" },
     { id: 2, title: "პური თონი", category: "პურ-ფუნთუშეული", price: 1.20, image: "https://placehold.co/400x400/c9a260/white?text=Bread" },
@@ -12,7 +12,7 @@ const productsData = [
 
 let cart = JSON.parse(localStorage.getItem('cloverCart')) || [];
 
-// simple product card render
+// --- 1. RENDER PRODUCTS ---
 function renderProductGrid(filterCategory = 'all') {
     const grid = document.querySelector('.main-products-grid');
     if (!grid) return;
@@ -40,7 +40,7 @@ function renderProductGrid(filterCategory = 'all') {
     });
 }
 
-// cart  logic
+// --- 2. CART LOGIC ---
 function addToCart(id) {
     const product = productsData.find(p => p.id === id);
     if (!product) return;
@@ -57,10 +57,7 @@ function addToCart(id) {
             quantity: 1
         });
     }
-
     updateCartUI();
-    // Simple feedback
-    // alert(`${product.title} დაემატა!`); 
 }
 
 function removeFromCart(index) {
@@ -79,6 +76,8 @@ function updateCartUI() {
     // Update Modal List
     const container = document.getElementById('cart-items-container');
     const totalElem = document.getElementById('cart-total');
+    // Also update total inside Checkout Modal
+    const finalTotalElem = document.getElementById('final-total');
 
     if (container && totalElem) {
         container.innerHTML = '';
@@ -105,71 +104,97 @@ function updateCartUI() {
                 </div>
             `;
         });
-        totalElem.innerText = totalPrice.toFixed(2) + " ₾";
+        
+        const formattedTotal = totalPrice.toFixed(2) + " ₾";
+        totalElem.innerText = formattedTotal;
+        if(finalTotalElem) finalTotalElem.innerText = formattedTotal;
     }
 }
 
-// categories  logic code
-function filterProducts(category) {
-    
-    const buttons = document.querySelectorAll('.cat-btn');
-    buttons.forEach(btn => {
-        if(btn.innerText.includes(category) || (category === 'all' && btn.innerText === 'ყველა')) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-    renderProductGrid(category);
-}
+// --- 3. CHECKOUT LOGIC (UPDATED) ---
 
+// Step 1: Open the Checkout Modal
 function processCheckout() {
     if (cart.length === 0) {
-        alert("კალათა ცარიელია!");
+        alert("კალათა ცარიელია! დაამატეთ პროდუქტები.");
         return;
     }
-    const btn = document.querySelector('.checkout-btn');
-    if(btn) {
-        btn.innerText = "მუშავდება...";
-        btn.disabled = true;
-        setTimeout(() => {
-            alert("შეკვეთა გაფორმებულია!");
-            cart = [];
-            updateCartUI();
-            document.getElementById('cartModal').style.display = 'none';
-            btn.innerText = "ყიდვა";
-            btn.disabled = false;
-        }, 1500);
-    }
+    // Close Cart Modal
+    document.getElementById('cartModal').style.display = 'none';
+    // Open Address Modal
+    document.getElementById('checkoutModal').style.display = 'block';
 }
 
-// cart modal open/close logic
+// Step 2: Handle Final Submit
+function handleCheckoutSubmit(e) {
+    e.preventDefault(); // Stop page reload
+
+    const btn = e.target.querySelector('button[type="submit"]');
+    const name = document.getElementById('custName').value;
+    
+    // Loading State
+    const originalText = btn.innerText;
+    btn.innerText = "მუშავდება...";
+    btn.disabled = true;
+
+    setTimeout(() => {
+        // Success Action
+        alert(`მადლობა ${name}! თქვენი შეკვეთა მიღებულია.\nკურიერი დაგიკავშირდებათ მითითებულ მისამართზე.`);
+        
+        // Clear Cart
+        cart = [];
+        updateCartUI();
+        
+        // Reset Form & Close Modal
+        e.target.reset();
+        document.getElementById('checkoutModal').style.display = 'none';
+        
+        // Reset Button
+        btn.innerText = originalText;
+        btn.disabled = false;
+    }, 2000);
+}
+
+// --- 4. INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
     renderProductGrid();
 
-    // Open Cart Logic
+    // 1. Cart Modal Logic
     const cartModal = document.getElementById('cartModal');
     const openCartBtn = document.getElementById('open-cart-btn');
     const closeCartBtn = document.querySelector('.cart-close');
 
-    if(openCartBtn && cartModal) {
+    if(openCartBtn) {
         openCartBtn.addEventListener('click', (e) => {
             e.preventDefault();
             cartModal.style.display = 'block';
         });
     }
-
     if(closeCartBtn) {
         closeCartBtn.addEventListener('click', () => {
             cartModal.style.display = 'none';
         });
     }
 
-    // Close cart if clicking outside
+    // 2. Checkout Modal Logic
+    const checkoutModal = document.getElementById('checkoutModal');
+    const closeCheckoutBtn = document.querySelector('.checkout-close');
+    const checkoutForm = document.getElementById('checkoutForm');
+
+    if(closeCheckoutBtn) {
+        closeCheckoutBtn.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+        });
+    }
+
+    if(checkoutForm) {
+        checkoutForm.addEventListener('submit', handleCheckoutSubmit);
+    }
+
+    // 3. Close Modals on Outside Click
     window.addEventListener('click', (e) => {
-        if(e.target == cartModal) {
-            cartModal.style.display = 'none';
-        }
+        if(e.target == cartModal) cartModal.style.display = 'none';
+        if(e.target == checkoutModal) checkoutModal.style.display = 'none';
     });
 });
