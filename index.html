@@ -29,13 +29,15 @@
     <div class="heading">
       <div class="heading-container">
         <div class="heading-logo">
-          <img class="logo" src="media/logo2.png" alt="Clover" />
+          <a href="index.html">
+            <img class="logo" src="media/logo2.png" alt="Clover" />
+          </a>
         </div>
         <div class="heading-nav">
           <nav>
-            <a href="#">მთავარი</a>
+            <a href="index.html">მთავარი</a>
             <a href="products.html">პროდუქტები</a>
-            <a id="vacancy-link" href="#">ვაკანსიები</a>
+            <a href="#" class="vacancy-trigger">ვაკანსიები</a>
           </nav>
         </div>
         <button class="partnering">პარტნიორობა</button>
@@ -46,12 +48,10 @@
     <div id="partnershipModal" class="modal">
       <div class="modal-content">
         <span class="close-btn">×</span>
-
         <div class="modal-header">
           <h2>მოითხოვე <br /><span class="highlight">პარტნიორობა</span></h2>
           <p>ჩვენი წარმომადგენელი უმოკლეს დროში დაგიკავშირდებათ</p>
         </div>
-
         <form>
           <input type="text" placeholder="სახელი" required />
           <input type="text" placeholder="კომპანია" />
@@ -66,12 +66,10 @@
     <div id="vacancyModal" class="modal">
       <div class="modal-content">
         <span class="close-btn vacancy-close">×</span>
-
         <div class="modal-header">
           <h2>შემოუერთდი <br /><span class="highlight">გუნდს</span></h2>
           <p>იპოვე შენი ადგილი ჩვენთან</p>
         </div>
-
         <form>
           <input type="text" placeholder="სახელი, გვარი" required />
           <input type="email" placeholder="ელ.ფოსტა" />
@@ -91,7 +89,7 @@
       <div class="gradient-border border-bottom-rounded"></div>
     </div>
 
-    <div class="about-us-container">
+    <div id="about-us" class="about-us-container">
       <h1>ჩვენ შესახებ</h1>
       <hr />
       <p>
@@ -113,7 +111,6 @@
         <h2 style="color: white">პროდუქცია</h2>
         <hr style="background-color: #c9a260" />
       </div>
-
       <div class="products-grid">
         <div class="product-item">
           <i class="fa-solid fa-wine-bottle"></i>
@@ -181,7 +178,6 @@
         <h2>ჩვენი უპირატესობები</h2>
         <hr />
       </div>
-
       <div class="advantages-container">
         <div class="advantage-item">
           <i class="fa-solid fa-basket-shopping"></i>
@@ -229,7 +225,6 @@
           <h2>კონტაქტი</h2>
           <hr style="margin: 0" />
         </div>
-
         <ul class="contact-list">
           <li><i class="fa-solid fa-phone"></i> +995 ### ## ## ##</li>
           <li><i class="fa-solid fa-envelope"></i> info@cloverbloom.ge</li>
@@ -240,7 +235,6 @@
           </li>
         </ul>
       </div>
-
       <div class="contact-maps">
         <div class="map-box">
           <iframe
@@ -257,11 +251,12 @@
 
     <footer>
       <div class="gradient-border footer-absolute-border"></div>
-
       <div class="footer-container">
         <div class="footer-col brand-col">
-          <img src="media/logo2.png" alt="Logo" class="footer-logo" />
-
+          <a href="index.html" class="footer-brand-link">
+            <img src="media/logo2.png" alt="Logo" class="footer-logo" />
+            <span class="footer-brand-name">Clover Bloom Market</span>
+          </a>
           <div class="social-icons">
             <a href="https://www.facebook.com/" target="_blank">
               <i class="fa-brands fa-facebook-f"></i>
@@ -280,8 +275,8 @@
           <ul class="footer-links">
             <li><a href="index.html">მთავარი</a></li>
             <li><a href="products.html">პროდუქცია</a></li>
-            <li><a href="#">ვაკანსიები</a></li>
-            <li><a href="#">ჩვენ შესახებ</a></li>
+            <li><a href="#" class="vacancy-trigger">ვაკანსიები</a></li>
+            <li><a href="#about-us">ჩვენ შესახებ</a></li>
           </ul>
         </div>
 
