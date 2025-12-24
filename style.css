@@ -23,11 +23,7 @@
   --footer-border-light: rgba(255, 255, 255, 0.1);
   --footer-bottom-text: #6d8a78;
   --site-side-padding: 40px;
-  --logo-width: 150px;
-}
-
-html {
-  scroll-behavior: smooth; /* Enables smooth scrolling to sections */
+  --logo-width: 120px;
 }
 
 body {
@@ -132,11 +128,6 @@ body {
   flex: 0 0 auto;
 }
 
-.heading-logo a {
-  display: block;
-  line-height: 0;
-}
-
 .logo {
   width: var(--logo-width);
   height: auto;
@@ -181,8 +172,6 @@ body {
 .about-us-container {
   text-align: center;
   padding: 40px 20px;
-  /* Add scroll margin so the header doesn't cover the text when scrolling */
-  scroll-margin-top: 140px; 
 }
 
 .about-us-container h1 {
@@ -452,26 +441,26 @@ body {
 .logo-box1 {
   width: 150px;
   height: 150px;
-  background-image: url(/media/partner1.svg);
-  background-size: cover;
   background-color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light-gray);
-  font-family: "Mark Geo CAPS";
+  background-image: url(media/partner1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  border: 1px solid #eee;
+  border-radius: 8px;
 }
 .logo-box2 {
   width: 150px;
   height: 150px;
-  background-image: url(/media/partner2.jpg);
-  background-size: contain;
   background-color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light-gray);
-  font-family: "Mark Geo CAPS";
+  background-image: url(media/partner2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  border: 1px solid #eee;
+  border-radius: 8px;
 }
 
 .white-partner-btn {
@@ -555,11 +544,13 @@ footer {
 
 .footer-container {
   display: flex;
+
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+
   padding: 0 var(--site-side-padding) 40px var(--site-side-padding);
   box-sizing: border-box;
   gap: 40px;
@@ -570,30 +561,16 @@ footer {
   min-width: 220px;
   display: flex;
   flex-direction: column;
+
   align-items: flex-start;
   text-align: left;
 }
 
-/* UPDATED: Reduced gap here to pull icons up */
 .brand-col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px; 
-}
-
-/* UPDATED: Removed margin-bottom to pull icons up */
-.footer-brand-link {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  text-decoration: none;
-  margin-bottom: 0; /* Changed from 20px */
-  transition: opacity 0.3s ease;
-}
-
-.footer-brand-link:hover {
-  opacity: 0.8;
+  gap: 25px;
 }
 
 .brand-col .footer-logo {
@@ -604,13 +581,11 @@ footer {
   margin: 0;
 }
 
-.footer-brand-name {
-  font-family: "Mark Geo CAPS", sans-serif;
-  color: var(--white);
-  font-size: 20px;
-  line-height: 1.2;
+.brand-desc {
   text-align: left;
-  max-width: 150px;
+  margin: 0 0 15px 0;
+  padding: 0;
+  line-height: 1.5;
 }
 
 .social-icons {
@@ -639,11 +614,13 @@ footer {
 .footer-col h3::after {
   content: "";
   position: absolute;
+
   left: 0;
   bottom: -8px;
   width: 40px;
   height: 2px;
   background-color: var(--btn-green);
+
   transform: none;
 }
 
@@ -815,17 +792,7 @@ footer {
     text-align: center;
   }
 
-  .footer-brand-link {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .footer-brand-name {
-    text-align: center;
-    margin-top: 10px;
-  }
-
+  .brand-desc,
   .newsletter-col p,
   .footer-links {
     text-align: center;
@@ -907,5 +874,9 @@ footer {
 
   .partnering {
     width: 100%;
+  }
+
+  .brand-desc {
+    margin: 0 auto 15px auto;
   }
 }
