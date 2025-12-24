@@ -1,13 +1,21 @@
 // --- PRODUCT DATA ---
 const productsData = [
-    { id: 1, title: "წითელი ღვინო", category: "სასმელი", price: 24.50, image: "https://placehold.co/400x400/235439/white?text=Wine" },
-    { id: 2, title: "პური თონი", category: "პურ-ფუნთუშეული", price: 1.20, image: "https://placehold.co/400x400/c9a260/white?text=Bread" },
-    { id: 3, title: "ყავა მარცვალი", category: "ჩაი, ყავა", price: 18.00, image: "https://placehold.co/400x400/333/white?text=Coffee" },
-    { id: 4, title: "შოკოლადი", category: "ტკბილეული", price: 4.50, image: "https://placehold.co/400x400/555/white?text=Choco" },
-    { id: 5, title: "ყველი იმერული", category: "რძის ნაწარმი", price: 14.00, image: "https://placehold.co/400x400/777/white?text=Cheese" },
-    { id: 6, title: "ზეთი", category: "ბაკალეა", price: 8.50, image: "https://placehold.co/400x400/888/white?text=Oil" },
-    { id: 7, title: "ორაგული", category: "ზღვის პროდუქტები", price: 35.00, image: "https://placehold.co/400x400/999/white?text=Fish" },
-    { id: 8, title: "სარეცხი სითხე", category: "ჰიგიენა", price: 12.00, image: "https://placehold.co/400x400/000/white?text=Soap" }
+    { id: 1, title: "წითელი ღვინო", category: "სასმელი", price: 24.50, image: "media/products/redWine.png" },
+    { id: 2, title: "თონის პური", category: "პურ-ფუნთუშეული", price: 1.20, image: "media/products/puriToni.webp" },
+    { id: 3, title: "ყავა", category: "ჩაი, ყავა", price: 70.00, image: "media/products/coffee.webp" },
+    { id: 4, title: "შოკოლადი", category: "ტკბილეული", price: 7.5, image: "media/products/milka.webp" },
+    { id: 5, title: "რძე", category: "რძის ნაწარმი", price: 6.00, image: "media/products/milk.webp" },
+    { id: 6, title: "მზესუმზირის ზეთი", category: "ბაკალეა", price: 8.50, image: "media/products/oil.jpg" },
+    { id: 7, title: "ზეითუნის ზეთი", category: "ბაკალეა", price: 16.50, image: "media/products/olive-oil.jpg" },
+    { id: 8, title: "ორაგული", category: "ზღვის პროდუქტები", price: 70, image: "media/products/salmon.webp" },
+  { id: 9, title: "ჩაი", category: "ჩაი, ყავა", price: 4.99, image: "media/products/greenfield.jpg" },
+  { id: 10, title: "ჩიფსი", category: "სნექი", price: 6, image: "media/products/chips.webp" },
+  { id: 11, title: "თევზის კონსერვი", category: "კონსერვი", price: 8, image: "media/products/kilka.webp" },
+  { id: 12, title: "ფინური სერველატი", category: "ძეხვეული", price: 21.20, image: "media/products/finn.jpg" },
+  { id: 13, title: "საქონლის ხორცი", category: "ხორცი", price: 25, image: "media/products/beef.jpg" },
+  { id: 14, title: "სველი სალფეთქი", category: "ჰიგიენა", price: 2.5, image: "media/products/wet-wipes.webp" },
+  { id: 15, title: "ფელიქსი", category: "ცხოველთა კვება", price: 1.99, image: "media/products/felix.jpg" },
+    { id: 16, title: "ვარდების თაიგული", category: "ყვავილები", price: 700, image: "media/products/rose.png" },
 ];
 
 let cart = JSON.parse(localStorage.getItem('cloverCart')) || [];
@@ -25,8 +33,7 @@ function renderProductGrid(filterCategory = 'all') {
         ? productsData 
         : productsData.filter(p => {
            
-            return p.category.includes(filterCategory) || 
-                   (filterCategory === 'სასმელი' && p.category === 'ჩაი, ყავა'); 
+          return p.category.includes(filterCategory);
         });
 
     filteredData.forEach(product => {
@@ -164,7 +171,7 @@ function handleCheckoutSubmit(e) {
 
     setTimeout(() => {
         
-        alert(`მადლობა ${name}! თქვენი შეკვეთა მიღებულია.\nკურიერი დაგიკავშირდებათ მითითებულ მისამართზე.`);
+        alert(`მადლობა ${name}! თქვენი შეკვეთა მიღებულია.\nკურიერი მალე მოიტანს შეკვეთას.`);
         
         
         cart = [];
