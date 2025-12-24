@@ -90,6 +90,114 @@
         </form>
       </div>
     </div>
+    <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn checkout-close">×</span>
+        <div class="modal-header">
+          <h2>შეკვეთის <span class="highlight">გაფორმება</span></h2>
+          <p>მიუთითეთ მისამართი და გადახდის მეთოდი</p>
+        </div>
+
+        <form id="checkoutForm">
+          <input
+            type="text"
+            id="custName"
+            placeholder="სახელი, გვარი"
+            required
+          />
+          <input
+            type="tel"
+            id="custPhone"
+            placeholder="ტელეფონი (მაგ: 555 00 00 00)"
+            required
+          />
+
+          <input
+            type="text"
+            id="custAddress"
+            placeholder="ზუსტი მისამართი"
+            required
+          />
+          <textarea
+            id="custComment"
+            placeholder="კომენტარი კურიერს (არასავალდებულო)"
+            rows="2"
+          ></textarea>
+
+          <div style="margin-top: 15px; margin-bottom: 20px; text-align: left">
+            <label
+              style="
+                color: #aaa;
+                font-size: 12px;
+                display: block;
+                margin-bottom: 5px;
+              "
+              >გადახდის მეთოდი:</label
+            >
+
+            <div style="display: flex; gap: 15px; align-items: center">
+              <label
+                style="
+                  color: white;
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  cursor: pointer;
+                "
+              >
+                <input
+                  type="radio"
+                  name="payment"
+                  value="cash"
+                  checked
+                  style="width: auto; height: auto"
+                />
+                ნაღდი ანგარიშსწორება
+              </label>
+
+              <label
+                style="
+                  color: white;
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+                  cursor: pointer;
+                "
+              >
+                <input
+                  type="radio"
+                  name="payment"
+                  value="card"
+                  style="width: auto; height: auto"
+                />
+                ბარათით კურიერთან
+              </label>
+            </div>
+          </div>
+
+          <div
+            style="
+              border-top: 1px solid #555;
+              padding-top: 10px;
+              margin-bottom: 15px;
+              text-align: right;
+            "
+          >
+            <span
+              style="
+                color: #c9a260;
+                font-family: 'Mark Geo CAPS';
+                font-size: 18px;
+              "
+            >
+              სულ გადასახდელი: <span id="final-total">0.00 ₾</span>
+            </span>
+          </div>
+
+          <button type="submit" class="send-btn">დადასტურება</button>
+        </form>
+      </div>
+    </div>
 
     <div id="cartModal" class="modal">
       <div class="modal-content cart-content">
