@@ -137,7 +137,7 @@ function processCheckout() {
             cart = [];
             updateCartUI();
             document.getElementById('cartModal').style.display = 'none';
-            btn.innerText = "შეკვეთის გაფორმება";
+            btn.innerText = "ყიდვა";
             btn.disabled = false;
         }, 1500);
     }
