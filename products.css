@@ -1,10 +1,7 @@
-/* ========================
-   PRODUCTS PAGE LAYOUT
-   ======================== */
 .products-page-wrapper {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 0 40px; 
+  padding: 0 40px;
 }
 
 /* --- Controls */
@@ -39,12 +36,11 @@
   color: var(--gold-accent);
 }
 
-/* ========================
-   SIMPLE CARD DESIGN
-   ======================== */
+/*SIMPLE CARD DESIGN*/
+
 .main-products-grid {
   display: grid;
-  /* Responsive Grid Logic */
+
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
   justify-content: center;
@@ -52,7 +48,7 @@
 
 .simple-card {
   position: relative;
-  height: 300px; 
+  height: 300px;
   border-radius: 12px;
   overflow: hidden;
   background-color: #eee;
@@ -80,7 +76,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 50%; 
+  height: 50%;
 }
 
 .card-title {
@@ -125,9 +121,9 @@
   color: var(--header-bg);
 }
 
-/* ========================
+/* 
    CART MODAL & NAV ICON
-   ======================== */
+    */
 .nav-cart-btn {
   position: relative;
   color: var(--white);
@@ -200,7 +196,7 @@
   margin-bottom: 20px;
 }
 #checkoutModal input[type="radio"] {
-  accent-color: var(--gold-accent); 
+  accent-color: var(--gold-accent);
   margin: 0;
 }
 
@@ -210,11 +206,11 @@
     padding: 0 10px;
   }
   .main-products-grid {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
   .simple-card {
-    height: 220px; 
+    height: 220px;
   }
   .card-title {
     font-size: 14px;
