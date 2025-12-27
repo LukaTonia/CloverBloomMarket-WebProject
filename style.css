@@ -78,7 +78,7 @@ body {
   flex-direction: column;
   padding-top: env(safe-area-inset-top);
 }
-
+/*heading main container*/
 .heading-container {
   display: flex;
   justify-content: space-between;
