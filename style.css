@@ -278,7 +278,7 @@ body {
   font-family: "Noto Serif Georgian", serif;
   box-sizing: border-box;
 }
-
+/*modal*/
 .modal-content input:focus,
 .modal-content textarea:focus {
   border-bottom: 1px solid var(--btn-green);
